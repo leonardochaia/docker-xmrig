@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  xmrig:
+    image: lchaia/xmrig
+    container_name: xmrig
+    build:
+      context: ./src
+    command: --url randomx-benchmark.xmrig.com:7777 --algo rx/test

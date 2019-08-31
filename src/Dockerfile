@@ -82,7 +82,7 @@ RUN apk --no-cache add \
     pkgconf \
     zlib-dev
 
-ARG XMRIG_VERSION=v3.1.0
+ARG XMRIG_VERSION=v3.1.1
 ARG XMRIG_BUILD_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 # Clone XMRIG

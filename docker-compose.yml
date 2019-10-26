@@ -2,8 +2,8 @@ version: "3"
 
 services:
   xmrig:
-    image: lchaia/xmrig
+    image: lchaia/xmrig:v4.4.0-beta
     container_name: xmrig
     build:
       context: ./src
-    command: --url randomx-benchmark.xmrig.com:7777 --algo rx/test
+    command: --coin monero --url gulf.moneroocean.stream:10001 --user <your_xmr_address> --pass <worker_id:email>

@@ -2,7 +2,7 @@ version: "3"
 
 services:
   xmrig:
-    image: lchaia/xmrig
+    image: lchaia/xmrig:v4.6.2-beta
     container_name: xmrig
     build:
       context: ./src

@@ -12,7 +12,7 @@ RUN apk --no-cache add \
     --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
     hwloc-dev
 
-ARG XMRIG_VERSION=v5.1.0
+ARG XMRIG_VERSION=v5.1.1
 ARG XMRIG_BUILD_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 WORKDIR /xmrig

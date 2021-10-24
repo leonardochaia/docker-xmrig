@@ -1,18 +1,16 @@
 ARG ALPINE_VERSION=3.10
 FROM lchaia/alpine-gcc:7.4.0 as builder
 
-RUN apk --no-cache add \
+RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
+    && apk --no-cache add \
     libuv-dev \
     openssl-dev \
     libmicrohttpd \
     git \
-    cmake
-
-RUN apk --no-cache add \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+    cmake \
     hwloc-dev
 
-ARG XMRIG_VERSION=v6.5.2
+ARG XMRIG_VERSION=v6.15.2
 ARG XMRIG_BUILD_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 WORKDIR /xmrig
@@ -29,11 +27,9 @@ FROM alpine:${ALPINE_VERSION}
 
 COPY --from=builder /xmrig/xmrig /bin/
 
-RUN apk --no-cache add \
-    libuv-dev 
-
-RUN apk --no-cache add \
-    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
+    && apk --no-cache add \
+    libuv-dev \
     hwloc-dev
 
 RUN adduser -S -D -H -h /xmrig miner

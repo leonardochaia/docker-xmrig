@@ -10,7 +10,7 @@ RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repo
     cmake \
     hwloc-dev
 
-ARG XMRIG_VERSION=v6.15.2
+ARG XMRIG_VERSION=v6.12.2
 ARG XMRIG_BUILD_ARGS="-DCMAKE_BUILD_TYPE=Release"
 
 WORKDIR /xmrig

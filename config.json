@@ -1,0 +1,16 @@
+{
+    "autosave": true,
+    "cpu": true,
+    "opencl": false,
+    "cuda": false,
+    "pools": [
+        {
+            "algo": null,
+            "coin": null,
+            "url": YOUR_SERVER_URL,
+            "user": YOUR_USERNAME,
+            "pass": YOUR_PASSWORD,
+            "enabled": true
+        }
+    ]
+}

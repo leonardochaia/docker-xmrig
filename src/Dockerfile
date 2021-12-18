@@ -28,14 +28,17 @@ FROM alpine:${ALPINE_VERSION}
 COPY --from=builder /xmrig/xmrig /bin/
 
 RUN echo 'https://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
+    && echo 'https://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+    && apk update \
     && apk --no-cache add \
-    libuv-dev \
-    hwloc-dev
+        libuv-dev \
+        hwloc-dev \
+        msr-tools
 
-RUN adduser -S -D -H -h /xmrig miner
-RUN xmrig --help
+#RUN adduser -S -D -H -h /xmrig miner
+#RUN xmrig --help
 
-USER miner
+#USER miner
 
 ENTRYPOINT ["xmrig"]
 CMD [ "--help" ]

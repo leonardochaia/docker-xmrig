@@ -2,8 +2,20 @@ version: "3"
 
 services:
   xmrig:
-    image: lchaia/xmrig
     container_name: xmrig
+    restart: unless-stopped
+
     build:
-      context: ./src
-    command: --url randomx-benchmark.xmrig.com:7777 --algo rx/test
+        context: ./src
+
+    command:
+        - "--config=/config.json"
+        - "--donate-level=0"
+
+    volumes:
+       - ./config.json:/config.json:ro
+       - /lib/modules:/lib/modules:ro
+
+    privileged: true
+    cap_add:
+       - SYS_ADMIN
